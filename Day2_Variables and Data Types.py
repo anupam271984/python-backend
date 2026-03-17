@@ -40,7 +40,4 @@ print(f"User {name} has {badges} badges. Certified: {is_certified}")
 # If i need to print each statement in new line then add \n
 print(f"User {name}\nhas {badges} badges.\nCertified: {is_certified}")
 
-a = 1
-print(type(a))
-b = "1"
-print(type(b))
+
