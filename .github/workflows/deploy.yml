@@ -1,37 +1,35 @@
-name: AI Data Tracker
+name: Python Scraper Workflow
+
 on:
   push:
-    branches: [ main ]
-  schedule:
-    - cron: '0 0 * * *' # Runs daily at midnight
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch: # Allows manual triggering from the Actions tab
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write # Crucial: Allows Python to save data.json back to GitHub
-    
+
     steps:
+      # 1. Check out your code so the runner can see your files
       - name: Checkout code
         uses: actions/checkout@v4
 
+      # 2. Set up the Python environment
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: '3.10'
 
+      # 3. Install dependencies from the correct folder
       - name: Install dependencies
-        run: pip install requests beautifulsoup4
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        working-directory: ./python-backend
 
+      # 4. Run the scraper from the correct folder
       - name: Run Scraper
         run: python tracker.py
-        env:
-          LINKEDIN_TOKEN: ${{ secrets.LINKEDIN_TOKEN }}
-
-      - name: Commit and Push results
-        run: |
-          git config --global user.name "GitHub Action"
-          git config --global user.email "action@github.com"
-          git add data.json
-          git commit -m "Auto-update " || exit 0
-          git push
+        working-directory: ./python-backend
