@@ -19,3 +19,5 @@ Python provides many built-in methods to manipulate text:
 
 ### 🛠️
 strings are iterables, meaning you can process them one character at a time using loops. You can also use advanced formatting to control exactly how text and numbers appear
+
+# Unlike strip() or replace(), which return a string, split() returns a list of strings 

@@ -1,0 +1,2 @@
+# 🚀 In Python 3.10 and newer, the "Case Statement" is officially called Structural Pattern Matching. It uses the match and case keywords.
+### 🛠️  It is much cleaner than a long list of if/elif statements
