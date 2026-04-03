@@ -15,3 +15,6 @@
 
 # 4. Getting the Index with enumerate()
 # If you need both the index number and the item, use enumerate().
+
+# 🚀 while loop
+# A while loop in Python repeats a block of code as long as a certain condition remains True.

@@ -20,5 +20,8 @@ for char in characters:
         print(i)
 
 num = 123444455
-for i in num:
-    print(i)  # Error int is not iterable
+# for i in num:
+    # print(i)  # Error int is not iterable
+
+for n1 in range(1, 20, 4): # range(start, stop, step)
+        print(n1)
